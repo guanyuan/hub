@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.8 (453748)"/><meta name="author" content="guanyuan"/><meta name="created" content="2016-08-24 23:03:26 +0000"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2016-08-24 23:26:39 +0000"/><title>React-es5-to-es6</title></head><body>
+<div><a href="https://github.com/cht8687/React-ES5-To-ES6-Checklist" rev="en_rl_small">https://github.com/cht8687/React-ES5-To-ES6-Checklist</a></div>
+<div><br/></div>
+<div><br/></div>
+<div><b>web pack对JSX,ES6和ES7的支持</b></div>
+<div>
+<h3 style="font-weight: 400; font-family: Coustard, Georgia, serif; font-size: 1.2em; color: rgb(68, 68, 68); font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">Build-time packages</h3>
+<p style="font-size: 18px; color: rgb(68, 68, 68); font-family: Lora, Georgia, serif; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">Once you’re ready, start by installing the <code style="font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; padding: 1px 6px; color: rgb(51, 51, 51); border: none; box-shadow: none; background: rgb(248, 248, 248);">babel-core</code> and <code style="font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; padding: 1px 6px; color: rgb(51, 51, 51); border: none; box-shadow: none; background: rgb(248, 248, 248);">babel-loader</code> packages:</p>
+<pre style="font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; white-space: pre-wrap; word-wrap: break-word; padding: 2px; color: rgb(51, 51, 51); border: none; box-shadow: none; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background: none rgb(248, 248, 248);">
+<code style="font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; padding: 1px 6px; color: rgb(51, 51, 51); border: none; box-shadow: none; background: rgb(248, 248, 248);"><span style="color: rgb(0, 0, 0);">npm install babel</span><span style="color: rgb(102, 102, 0);">-</span><span style="color: rgb(0, 0, 0);">core babel</span><span style="color: rgb(102, 102, 0);">-</span><span style="color: rgb(0, 0, 0);">loader </span><span style="color: rgb(102, 102, 0);">--</span><span style="color: rgb(0, 0, 0);">save</span><span style="color: rgb(102, 102, 0);">-</span><span style="color: rgb(0, 0, 0);">dev</span></code>
+</pre>
+<p style="font-size: 18px; color: rgb(68, 68, 68); font-family: Lora, Georgia, serif; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">Next, you’ll need to install any <a href="https://babeljs.io/docs/plugins/" style="color: rgb(179, 14, 47); text-decoration: none;">presets and plugins</a> you need. Start with <code style="font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; padding: 1px 6px; color: rgb(51, 51, 51); border: none; box-shadow: none; background: rgb(248, 248, 248);">babel-preset-es2015</code> – Babel’s collection of ES6 transforms. If you’re using <a href="https://facebook.github.io/jsx/" style="color: rgb(179, 14, 47); text-decoration: none;">JSX</a>, you’ll also want <code style="font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; padding: 1px 6px; color: rgb(51, 51, 51); border: none; box-shadow: none; background: rgb(248, 248, 248);">babel-preset-react</code>. And if you want to play with fire, you can add <code style="font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; padding: 1px 6px; color: rgb(51, 51, 51); border: none; box-shadow: none; background: rgb(248, 248, 248);">babel-preset-stage-0</code> for access to ES7 decorators, <code style="font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; padding: 1px 6px; color: rgb(51, 51, 51); border: none; box-shadow: none; background: rgb(248, 248, 248);">async</code>/<code style="font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; padding: 1px 6px; color: rgb(51, 51, 51); border: none; box-shadow: none; background: rgb(248, 248, 248);">await</code>, etc.</p>
+<div style="font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; padding: 2px; color: rgb(51, 51, 51); border: none; box-shadow: none; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background: none rgb(248, 248, 248);"><code style="font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; padding: 1px 6px; color: rgb(51, 51, 51); border: none; box-shadow: none; background: rgb(248, 248, 248);"><span style="color: rgb(136, 0, 0);"># For ES6/ES2015 support</span><span style="color: rgb(0, 0, 0);"><br/>
+npm install babel</span><span style="color: rgb(102, 102, 0);">-</span><span style="color: rgb(0, 0, 0);">preset</span><span style="color: rgb(102, 102, 0);">-</span><span style="color: rgb(0, 0, 0);">es2015 </span><span style="color: rgb(102, 102, 0);">--</span><span style="color: rgb(0, 0, 0);">save</span><span style="color: rgb(102, 102, 0);">-</span><span style="color: rgb(0, 0, 0);">dev<br/>
+<br/></span><span style="color: rgb(136, 0, 0);"># If you want to use JSX</span><span style="color: rgb(0, 0, 0);"><br/>
+npm install babel</span><span style="color: rgb(102, 102, 0);">-</span><span style="color: rgb(0, 0, 0);">preset</span><span style="color: rgb(102, 102, 0);">-</span><span style="color: rgb(0, 0, 0);">react </span><span style="color: rgb(102, 102, 0);">--</span><span style="color: rgb(0, 0, 0);">save</span><span style="color: rgb(102, 102, 0);">-</span><span style="color: rgb(0, 0, 0);">dev<br/>
+<br/></span><span style="color: rgb(136, 0, 0);"># If you want to use experimental ES7 features</span><span style="color: rgb(0, 0, 0);"><br/>
+npm install babel</span><span style="color: rgb(102, 102, 0);">-</span><span style="color: rgb(0, 0, 0);">preset</span><span style="color: rgb(102, 102, 0);">-</span><span style="color: rgb(0, 0, 0);">stage</span><span style="color: rgb(102, 102, 0);">-</span><span style="color: rgb(0, 102, 102);">0</span><span style="color: rgb(0, 0, 0);"> </span><span style="color: rgb(102, 102, 0);">--</span><span style="color: rgb(0, 0, 0);">save</span><span style="color: rgb(102, 102, 0);">-</span><span style="color: rgb(0, 0, 0);">dev</span></code></div>
+</div>
+<div><br/></div>
+<div>config babel loader:</div>
+<div><span style="color: rgb(0, 0, 0); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">webpack： presets</span><span style="color: rgb(102, 102, 0); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">:</span><span style="color: rgb(102, 102, 0); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">[</span><span style="color: rgb(0, 136, 0); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">'es2015'</span><span style="color: rgb(102, 102, 0); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">,</span><span style="color: rgb(0, 136, 0); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">'stage-0'</span><span style="color: rgb(102, 102, 0); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">,</span><span style="color: rgb(0, 136, 0); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">'react'</span><span style="color: rgb(102, 102, 0); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">],</span></div>
+<div>babelrc  </div>
+<div>  {</div>
+<div>    "presets": [</div>
+<div>      "es2015",</div>
+<div>      "react",</div>
+<div>      "stage-2"</div>
+<div>    ],</div>
+<div>    "plugins": []</div>
+<div>  }</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><b>函数绑定</b></div>
+<div><a href="http://www.w3cplus.com/react/react-es5-createclass-vs-es6-classes.html" rev="en_rl_small">http://www.w3cplus.com/react/react-es5-createclass-vs-es6-classes.html</a></div>
+<div>这可能是最容易犯错的点(tripping point)。</div>
+<div><br/></div>
+<div>用 createClass 很简单：每一个成员函数都由 React 自动绑定。任何时候需要调用，直接使用 this.whateverFn 即可，函数中的 this 变量在函数调用时会被正确设置。</div>
+<div><br/></div>
+<div>用 ES6 class 需要当心：函数不是自动绑定的。你必须手动绑定。最好是在构造函数中做这事，就像上面的例子那样。</div>
+<div><br/></div>
+<div>
+<p style="box-sizing: inherit; font-size: 16px; color: rgb(64, 64, 64); font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">另一个方法是行内绑定，像下面这样：</p>
+<div style="box-sizing: inherit; overflow: auto; font-family: monospace, monospace; font-size: 14px; padding: 0.5em; color: rgb(131, 148, 150); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background: rgb(0, 43, 54);"><code style="box-sizing: inherit; font-family: monospace, monospace; font-size: 1em; padding: 0.5em; color: rgb(131, 148, 150); background: rgb(0, 43, 54);"><span style="box-sizing: inherit; color: rgb(88, 110, 117); font-style: italic;"><span style="box-sizing: inherit; color: rgb(88, 110, 117); font-style: italic;">// 使用 `.bind`:</span></span><br/>
+render() {<br/>
+    <span style="box-sizing: inherit; color: rgb(133, 153, 0);"><span style="box-sizing: inherit; color: rgb(133, 153, 0);">return</span></span> (<br/>
+        <span style="box-sizing: inherit;"><span style="box-sizing: inherit;"><span style="box-sizing: inherit;"><span style="box-sizing: inherit;">&lt;<span style="box-sizing: inherit; color: rgb(38, 139, 210);"><span style="box-sizing: inherit; color: rgb(38, 139, 210);">input</span></span> <span style="box-sizing: inherit; color: rgb(181, 137, 0);"><span style="box-sizing: inherit; color: rgb(181, 137, 0);">onChange</span></span>=<span style="box-sizing: inherit; color: rgb(42, 161, 152);"><span style="box-sizing: inherit; color: rgb(42, 161, 152);">{this.handleChange.bind(this)}</span></span><br/>
+           <span style="box-sizing: inherit; color: rgb(181, 137, 0);"><span style="box-sizing: inherit; color: rgb(181, 137, 0);">value</span></span>=<span style="box-sizing: inherit; color: rgb(42, 161, 152);"><span style="box-sizing: inherit; color: rgb(42, 161, 152);">{this.state.text}</span></span> /&gt;</span></span></span><span style="box-sizing: inherit;"><br/>
+    );<br/>
+}<br/>
+<br/>
+// --- 或 ---<br/>
+<br/>
+// 使用胖箭头函数:<br/>
+render() {<br/>
+    return (<br/>
+        <span style="box-sizing: inherit;"><span style="box-sizing: inherit;">&lt;<span style="box-sizing: inherit; color: rgb(38, 139, 210);"><span style="box-sizing: inherit; color: rgb(38, 139, 210);">input</span></span> <span style="box-sizing: inherit; color: rgb(181, 137, 0);"><span style="box-sizing: inherit; color: rgb(181, 137, 0);">onChange</span></span>=<span style="box-sizing: inherit; color: rgb(42, 161, 152);"><span style="box-sizing: inherit; color: rgb(42, 161, 152);">{()</span></span> =&gt;</span></span> this.handleChange()}<br/>
+           value={this.state.text} /&gt;<br/>
+    );<br/>
+}</span></span></code></div>
+</div>
+<div><br/></div>
+<div>
+<p style="box-sizing: inherit; font-size: 16px; color: rgb(64, 64, 64); font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">还有一个最终选项是将函数自身替换为胖箭头函数，像这样：</p>
+<pre style="box-sizing: inherit; overflow: auto; font-family: monospace, monospace; font-size: 14px; padding: 0.5em; color: rgb(131, 148, 150); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background: rgb(0, 43, 54);">
+<code style="box-sizing: inherit; font-family: monospace, monospace; font-size: 1em; padding: 0.5em; color: rgb(131, 148, 150); background: rgb(0, 43, 54);"><span style="box-sizing: inherit; color: rgb(88, 110, 117); font-style: italic;"><span style="box-sizing: inherit; color: rgb(88, 110, 117); font-style: italic;">// 通常的做法</span></span>
+<span style="box-sizing: inherit; color: rgb(88, 110, 117); font-style: italic;"><span style="box-sizing: inherit; color: rgb(88, 110, 117); font-style: italic;">// 需要在别处绑定</span></span>
+handleChange(<span style="box-sizing: inherit; color: rgb(133, 153, 0);"><span style="box-sizing: inherit; color: rgb(133, 153, 0);">event</span></span>) {
+    <span style="box-sizing: inherit; color: rgb(133, 153, 0);"><span style="box-sizing: inherit; color: rgb(133, 153, 0);">this</span></span>.setState({
+        text: <span style="box-sizing: inherit; color: rgb(133, 153, 0);"><span style="box-sizing: inherit; color: rgb(133, 153, 0);">event</span></span>.target.<span style="box-sizing: inherit; color: rgb(133, 153, 0);"><span style="box-sizing: inherit; color: rgb(133, 153, 0);">value</span></span>
+    });
+}
+
+<span style="box-sizing: inherit; color: rgb(88, 110, 117); font-style: italic;"><span style="box-sizing: inherit; color: rgb(88, 110, 117); font-style: italic;">// ES7 做法</span></span>
+<span style="box-sizing: inherit; color: rgb(88, 110, 117); font-style: italic;"><span style="box-sizing: inherit; color: rgb(88, 110, 117); font-style: italic;">// 搞定，不需要另外绑定</span></span>
+handleChange = (<span style="box-sizing: inherit; color: rgb(133, 153, 0);"><span style="box-sizing: inherit; color: rgb(133, 153, 0);">event</span></span>) =&gt; {
+    <span style="box-sizing: inherit; color: rgb(133, 153, 0);"><span style="box-sizing: inherit; color: rgb(133, 153, 0);">this</span></span>.setState({
+        text: <span style="box-sizing: inherit; color: rgb(133, 153, 0);"><span style="box-sizing: inherit; color: rgb(133, 153, 0);">event</span></span>.target.<span style="box-sizing: inherit; color: rgb(133, 153, 0);"><span style="box-sizing: inherit; color: rgb(133, 153, 0);">value</span></span>
+    });
+}
+</code>
+</pre>
+<p style="box-sizing: inherit; font-size: 16px; color: rgb(64, 64, 64); font-family: &quot;Microsoft YaHei&quot;, 微软雅黑, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">使用这个方法，你不需要做任何绑定。胖箭头函数的魔法会帮你全部搞定。函数内部的 <code style="box-sizing: inherit; font-family: Menlo, Monaco, &quot;Andale Mono&quot;, &quot;lucida console&quot;, &quot;Courier New&quot;, monospace; font-size: 1em; padding: 1px 3px; border: 1px solid rgb(204, 204, 204); background: rgb(221, 221, 221);">this</code> 变量会像预期的那样指向组件实例。</p>
+</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><a href="http://www.newmediacampaigns.com/blog/refactoring-react-components-to-es6-classes" rev="en_rl_small">http://www.newmediacampaigns.com/blog/refactoring-react-components-to-es6-classes</a></div>
+<table style="-evernote-table:true;border-collapse:collapse;width:100%;table-layout:fixed;margin-left:0px;">
+<tr>
+<td style="border-style:solid;border-width:1px;border-color:rgb(219,219,219);padding:10px;margin:0px;width:100%;">
+<div>Step 1 -Extract `propTypes` and `getDefaultTypes` to properties on the component constructor</div>
+<div>Step 2 - Convert component from using `createClass` to being an ES6 Class</div>
+<div>Step 3 - Bind instance methods / callbacks to the instance</div>
+<div>Step 4 - Move state initialization into the constructor</div>
+</td>
+</tr>
+</table>
+<div><img src="React-es5-to-es6.resources/3.png" height="1212" width="1560"/><br/>
+<img src="React-es5-to-es6.resources/4.png" height="1158" width="1578"/><br/>
+<img src="React-es5-to-es6.resources/2.png" height="1076" width="1570"/></div>
+<div><img src="React-es5-to-es6.resources/1.png" height="1036" width="1572"/></div>
+<div><br/></div>
+<div><a href="http://bbs.reactnative.cn/topic/15/react-react-native-%E7%9A%84es5-es6%E5%86%99%E6%B3%95%E5%AF%B9%E7%85%A7%E8%A1%A8/2" rev="en_rl_small">http://bbs.reactnative.cn/topic/15/react-react-native-%E7%9A%84es5-es6%E5%86%99%E6%B3%95%E5%AF%B9%E7%85%A7%E8%A1%A8/2</a></div>
+<div><br/></div>
+<div>
+<h2 style="box-sizing: border-box; font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 500; color: rgb(51, 51, 51); font-size: 20px; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">模块</h2>
+<h3 style="box-sizing: border-box; font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 900; color: rgb(51, 51, 51); font-size: 16px; text-transform: uppercase; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">引用</h3>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">在ES5里，如果使用CommonJS标准，引入React包基本通过require进行，代码类似这样：</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES5</span>
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">var</span> React = <span style="box-sizing: border-box; color: rgb(0, 0, 255);">require</span>(<span style="box-sizing: border-box; color: rgb(163, 21, 21);">"react"</span>);
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">var</span> {
+    Component,
+    PropTypes
+} = React;  <span style="box-sizing: border-box; color: rgb(0, 128, 0);">//引用React抽象组件</span>
+
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">var</span> ReactNative = <span style="box-sizing: border-box; color: rgb(0, 0, 255);">require</span>(<span style="box-sizing: border-box; color: rgb(163, 21, 21);">"react-native"</span>);
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">var</span> {
+    Image,
+    Text,
+} = ReactNative;  <span style="box-sizing: border-box; color: rgb(0, 128, 0);">//引用具体的React Native组件</span>
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">在ES6里，import写法更为标准</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES6</span>
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">import</span> React, { 
+    Component,
+    PropTypes,
+} <span style="box-sizing: border-box; color: rgb(0, 0, 255);">from</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">'react'</span>;
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">import</span> {
+    Image,
+    Text
+} <span style="box-sizing: border-box; color: rgb(0, 0, 255);">from</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">'react-native'</span>
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">注意在React Native里，import直到0.12+才能正常运作。</p>
+<h3 style="box-sizing: border-box; font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 900; color: rgb(51, 51, 51); font-size: 16px; text-transform: uppercase; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">导出单个类</h3>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">在ES5里，要导出一个类给别的模块用，一般通过module.exports来导出</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES5</span>
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">var</span> MyComponent = React.createClass({
+    ...
+});
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">module</span>.exports = MyComponent;
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">在ES6里，通常用export default来实现相同的功能：</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES6</span>
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">export</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">default</span> <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">class</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">MyComponent</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">extends</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">Component</span></span>{
+    ...
+}
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">引用的时候也类似：</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES5</span>
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">var</span> MyComponent = <span style="box-sizing: border-box; color: rgb(0, 0, 255);">require</span>(<span style="box-sizing: border-box; color: rgb(163, 21, 21);">'./MyComponent'</span>);
+
+<span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES6</span>
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">import</span> MyComponent <span style="box-sizing: border-box; color: rgb(0, 0, 255);">from</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">'./MyComponent'</span>;
+</code>
+</pre>
+<h2 style="box-sizing: border-box; font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 500; color: rgb(51, 51, 51); font-size: 20px; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">定义组件</h2>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">在ES5里，通常通过React.createClass来定义一个组件类，像这样：</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES5</span>
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">var</span> Photo = React.createClass({
+    render: <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">function</span>() </span>{
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> (
+            <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Image</span> <span style="box-sizing: border-box; color: rgb(255, 0, 0);">source</span>=<span style="box-sizing: border-box; color: rgb(0, 0, 255);">{this.props.source}</span> /&gt;</span>
+        )</span>;
+    },
+});
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">在ES6里，我们通过定义一个继承自React.Component的class来定义一个组件类，像这样：</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES6</span>
+<span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">class</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">Photo</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">extends</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">React</span>.<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Component</span> </span>{
+    render() {
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> (
+            <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Image</span> <span style="box-sizing: border-box; color: rgb(255, 0, 0);">source</span>=<span style="box-sizing: border-box; color: rgb(0, 0, 255);">{this.props.source}</span> /&gt;</span>
+        )</span>;
+    }
+}
+</code>
+</pre>
+<h3 style="box-sizing: border-box; font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 900; color: rgb(51, 51, 51); font-size: 16px; text-transform: uppercase; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">给组件定义方法</h3>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">从上面的例子里可以看到，给组件定义方法不再用 <code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 0px; background-color: rgb(249, 242, 244);">名字: function()</code>的写法，而是直接用<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 0px; background-color: rgb(249, 242, 244);">名字()</code>，在方法的最后也不能有逗号了。</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES5 </span>
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">var</span> Photo = React.createClass({
+    componentWillMount: <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">function</span>()</span>{
+
+    },
+    render: <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">function</span>() </span>{
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> (
+            <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Image</span> <span style="box-sizing: border-box; color: rgb(255, 0, 0);">source</span>=<span style="box-sizing: border-box; color: rgb(0, 0, 255);">{this.props.source}</span> /&gt;</span>
+        )</span>;
+    },
+});
+</code>
+</pre>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES6</span>
+<span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">class</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">Photo</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">extends</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">React</span>.<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Component</span> </span>{
+    componentWillMount() {
+
+    }
+    render() {
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> (
+            <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Image</span> <span style="box-sizing: border-box; color: rgb(255, 0, 0);">source</span>=<span style="box-sizing: border-box; color: rgb(0, 0, 255);">{this.props.source}</span> /&gt;</span>
+        )</span>;
+    }
+}
+</code>
+</pre>
+<h3 style="box-sizing: border-box; font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 900; color: rgb(51, 51, 51); font-size: 16px; text-transform: uppercase; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">定义组件的属性类型和默认属性</h3>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">在ES5里，属性类型和默认属性分别通过propTypes成员和getDefaultProps方法来实现</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES5 </span>
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">var</span> Video = React.createClass({
+    getDefaultProps: <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">function</span>() </span>{
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> {
+            autoPlay: <span style="box-sizing: border-box;">false</span>,
+            maxLoops: <span style="box-sizing: border-box;">10</span>,
+        };
+    },
+    propTypes: {
+        autoPlay: React.PropTypes.bool.isRequired,
+        maxLoops: React.PropTypes.number.isRequired,
+        posterFrameSrc: React.PropTypes.string.isRequired,
+        videoSrc: React.PropTypes.string.isRequired,
+    },
+    render: <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">function</span>() </span>{
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> (
+            <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">View</span> /&gt;</span>
+        )</span>;
+    },
+});
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">在ES6里，可以统一使用static成员来实现</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES6</span>
+<span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">class</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">Video</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">extends</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">React</span>.<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Component</span> </span>{
+    static defaultProps = {
+        autoPlay: <span style="box-sizing: border-box;">false</span>,
+        maxLoops: <span style="box-sizing: border-box;">10</span>,
+    };  <span style="box-sizing: border-box; color: rgb(0, 128, 0);">// 注意这里有分号</span>
+    static propTypes = {
+        autoPlay: React.PropTypes.bool.isRequired,
+        maxLoops: React.PropTypes.number.isRequired,
+        posterFrameSrc: React.PropTypes.string.isRequired,
+        videoSrc: React.PropTypes.string.isRequired,
+    };  <span style="box-sizing: border-box; color: rgb(0, 128, 0);">// 注意这里有分号</span>
+    render() {
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> (
+            <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">View</span> /&gt;</span>
+        )</span>;
+    } <span style="box-sizing: border-box; color: rgb(0, 128, 0);">// 注意这里既没有分号也没有逗号</span>
+}
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">也有人这么写，虽然不推荐，但读到代码的时候你应当能明白它的意思：</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES6</span>
+<span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">class</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">Video</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">extends</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">React</span>.<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Component</span> </span>{
+    render() {
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> (
+            <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">View</span> /&gt;</span>
+        )</span>;
+    }
+}
+Video.defaultProps = {
+    autoPlay: <span style="box-sizing: border-box;">false</span>,
+    maxLoops: <span style="box-sizing: border-box;">10</span>,
+};
+Video.propTypes = {
+    autoPlay: React.PropTypes.bool.isRequired,
+    maxLoops: React.PropTypes.number.isRequired,
+    posterFrameSrc: React.PropTypes.string.isRequired,
+    videoSrc: React.PropTypes.string.isRequired,
+};
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><em style="box-sizing: border-box;">注意:</em> 对React开发者而言，static成员在IE10及之前版本不能被继承，而在IE11和其它浏览器上可以，这有时候会带来一些问题。React Native开发者可以不用担心这个问题。</p>
+<h3 style="box-sizing: border-box; font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 900; color: rgb(51, 51, 51); font-size: 16px; text-transform: uppercase; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">初始化STATE</h3>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">ES5下情况类似，</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES5 </span>
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">var</span> Video = React.createClass({
+    getInitialState: <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">function</span>() </span>{
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> {
+            loopsRemaining: <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>.props.maxLoops,
+        };
+    },
+})
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">ES6下，有两种写法：</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES6</span>
+<span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">class</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">Video</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">extends</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">React</span>.<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Component</span> </span>{
+    state = {
+        loopsRemaining: <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>.props.maxLoops,
+    }
+}
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">不过我们推荐更易理解的在构造函数中初始化（这样你还可以根据需要做一些计算）：</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES6</span>
+<span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">class</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">Video</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">extends</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">React</span>.<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Component</span> </span>{
+    constructor(props){
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">super</span>(props);
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>.state = {
+            loopsRemaining: <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>.props.maxLoops,
+        };
+    }
+}
+</code>
+</pre>
+<h2 style="box-sizing: border-box; font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 500; color: rgb(51, 51, 51); font-size: 20px; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">把方法作为回调提供</h2>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">很多习惯于ES6的用户反而不理解在ES5下可以这么做：</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES5</span>
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">var</span> PostInfo = React.createClass({
+    handleOptionsButtonClick: <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">function</span>(<span style="box-sizing: border-box;">e</span>) </span>{
+        <span style="box-sizing: border-box; color: rgb(0, 128, 0);">// Here, 'this' refers to the component instance.</span>
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>.setState({showOptionsModal: <span style="box-sizing: border-box;">true</span>});
+    },
+    render: <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">function</span>()</span>{
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> (
+            <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">TouchableHighlight</span> <span style="box-sizing: border-box; color: rgb(255, 0, 0);">onPress</span>=<span style="box-sizing: border-box; color: rgb(0, 0, 255);">{this.handleOptionsButtonClick}</span>&gt;</span>
+                <span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Text</span>&gt;</span>{this.props.label}<span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;/<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Text</span>&gt;</span>
+            <span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;/<span style="box-sizing: border-box; color: rgb(163, 21, 21);">TouchableHighlight</span>&gt;</span>
+        )</span>
+    },
+});
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">在ES5下，React.createClass会把所有的方法都bind一遍，这样可以提交到任意的地方作为回调函数，而this不会变化。但官方现在逐步认为这反而是不标准、不易理解的。</p>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">在ES6下，你需要通过bind来绑定this引用，或者使用箭头函数（它会绑定当前scope的this引用）来调用</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//ES6</span>
+<span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">class</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">PostInfo</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">extends</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">React</span>.<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Component</span>
+</span>{
+    handleOptionsButtonClick(e){
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>.setState({showOptionsModal: <span style="box-sizing: border-box;">true</span>});
+    }
+    render(){
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> (
+            <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">TouchableHighlight</span> 
+                <span style="box-sizing: border-box; color: rgb(255, 0, 0);">onPress</span>=<span style="box-sizing: border-box; color: rgb(0, 0, 255);">{this.handleOptionsButtonClick.bind(this)}</span>
+                <span style="box-sizing: border-box; color: rgb(255, 0, 0);">onPress</span>=<span style="box-sizing: border-box; color: rgb(0, 0, 255);">{e=</span>&gt;</span>this.handleOptionsButtonClick(e)}
+                &gt;
+                <span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Text</span>&gt;</span>{this.props.label}<span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;/<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Text</span>&gt;</span>
+            <span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;/<span style="box-sizing: border-box; color: rgb(163, 21, 21);">TouchableHighlight</span>&gt;</span>
+        )</span>
+    },
+}
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">箭头函数实际上是在这里定义了一个临时的函数，箭头函数的箭头<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 0px; background-color: rgb(249, 242, 244);">=&gt;</code>之前是一个空括号、单个的参数名、或用括号括起的多个参数名，而箭头之后可以是一个表达式（作为函数的返回值），或者是用花括号括起的函数体（需要自行通过return来返回值，否则返回的是undefined）。</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">// 箭头函数的例子</span>
+()=&gt;<span style="box-sizing: border-box;">1</span>
+v=&gt;v+<span style="box-sizing: border-box;">1</span>
+(a,b)=&gt;a+b
+()=&gt;{
+    alert(<span style="box-sizing: border-box; color: rgb(163, 21, 21);">"foo"</span>);
+}
+e=&gt;{
+    <span style="box-sizing: border-box; color: rgb(0, 0, 255);">if</span> (e == <span style="box-sizing: border-box;">0</span>){
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> <span style="box-sizing: border-box;">0</span>;
+    }
+    <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> <span style="box-sizing: border-box;">1000</span>/e;
+}
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">需要注意的是，不论是bind还是箭头函数，每次被执行都返回的是一个新的函数引用，因此如果你还需要函数的引用去做一些别的事情（譬如卸载监听器），那么你必须自己保存这个引用</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">// 错误的做法</span>
+<span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">class</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">PauseMenu</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">extends</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">React</span>.<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Component</span></span>{
+    componentWillMount(){
+        AppStateIOS.addEventListener(<span style="box-sizing: border-box; color: rgb(163, 21, 21);">'change'</span>, <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>.onAppPaused.bind(<span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>));
+    }
+    componentDidUnmount(){
+        AppStateIOS.removeEventListener(<span style="box-sizing: border-box; color: rgb(163, 21, 21);">'change'</span>, <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>.onAppPaused.bind(<span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>));
+    }
+    onAppPaused(event){
+    }
+}
+</code>
+</pre>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">// 正确的做法</span>
+<span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">class</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">PauseMenu</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">extends</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">React</span>.<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Component</span></span>{
+    constructor(props){
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">super</span>(props);
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>._onAppPaused = <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>.onAppPaused.bind(<span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>);
+    }
+    componentWillMount(){
+        AppStateIOS.addEventListener(<span style="box-sizing: border-box; color: rgb(163, 21, 21);">'change'</span>, <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>._onAppPaused);
+    }
+    componentDidUnmount(){
+        AppStateIOS.removeEventListener(<span style="box-sizing: border-box; color: rgb(163, 21, 21);">'change'</span>, <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>._onAppPaused);
+    }
+    onAppPaused(event){
+    }
+}
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">从<a href="http://www.tuicool.com/articles/Rj6RFnm" target="_blank" rel="nofollow" style="box-sizing: border-box; color: rgb(51, 122, 183); text-decoration: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: transparent;">这个帖子</a>中我们还学习到一种新的做法：</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">// 正确的做法</span>
+<span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">class</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">PauseMenu</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">extends</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">React</span>.<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Component</span></span>{
+    componentWillMount(){
+        AppStateIOS.addEventListener(<span style="box-sizing: border-box; color: rgb(163, 21, 21);">'change'</span>, <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>.onAppPaused);
+    }
+    componentDidUnmount(){
+        AppStateIOS.removeEventListener(<span style="box-sizing: border-box; color: rgb(163, 21, 21);">'change'</span>, <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>.onAppPaused);
+    }
+    onAppPaused = (event) =&gt; {
+        <span style="box-sizing: border-box; color: rgb(0, 128, 0);">//把方法直接作为一个arrow function的属性来定义，初始化的时候就绑定好了this指针</span>
+    }
+}
+</code>
+</pre>
+<h2 style="box-sizing: border-box; font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 500; color: rgb(51, 51, 51); font-size: 20px; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">Mixins</h2>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">在ES5下，我们经常使用mixin来为我们的类添加一些新的方法，譬如PureRenderMixin</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">var</span> PureRenderMixin = <span style="box-sizing: border-box; color: rgb(0, 0, 255);">require</span>(<span style="box-sizing: border-box; color: rgb(163, 21, 21);">'react-addons-pure-render-mixin'</span>);
+React.createClass({
+  mixins: [PureRenderMixin],
+
+  render: <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">function</span>() </span>{
+    <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">div</span> <span style="box-sizing: border-box; color: rgb(255, 0, 0);">className</span>=<span style="box-sizing: border-box; color: rgb(0, 0, 255);">{this.props.className}</span>&gt;</span>foo<span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;/<span style="box-sizing: border-box; color: rgb(163, 21, 21);">div</span>&gt;</span>;</span>
+  }
+});
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">然而现在官方已经不再打算在ES6里继续推行Mixin，他们说：<a href="https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750" target="_blank" rel="nofollow" style="box-sizing: border-box; color: rgb(51, 122, 183); text-decoration: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: transparent;">Mixins Are Dead. Long Live Composition</a>。</p>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">尽管如果要继续使用mixin，还是有一些第三方的方案可以用，譬如<a href="https://github.com/brigand/react-mixin" target="_blank" rel="nofollow" style="box-sizing: border-box; color: rgb(51, 122, 183); text-decoration: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: transparent;">这个方案</a></p>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">不过官方推荐，对于库编写者而言，应当尽快放弃Mixin的编写方式，上文中提到<a href="https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775" target="_blank" rel="nofollow" style="box-sizing: border-box; color: rgb(51, 122, 183); text-decoration: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: transparent;">Sebastian Markbåge</a>的一段代码推荐了一种新的编码方式：</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//Enhance.js</span>
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">import</span> { Component } <span style="box-sizing: border-box; color: rgb(0, 0, 255);">from</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">"React"</span>;
+
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">export</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">var</span> Enhance = ComposedComponent =&gt; <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">class</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">extends</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">Component</span> </span>{
+    constructor() {
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>.state = { data: <span style="box-sizing: border-box;">null</span> };
+    }
+    componentDidMount() {
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>.setState({ data: <span style="box-sizing: border-box; color: rgb(163, 21, 21);">'Hello'</span> });
+    }
+    render() {
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">ComposedComponent</span> {<span style="box-sizing: border-box; color: rgb(255, 0, 0);">...this.props</span>} <span style="box-sizing: border-box; color: rgb(255, 0, 0);">data</span>=<span style="box-sizing: border-box; color: rgb(0, 0, 255);">{this.state.data}</span> /&gt;</span>;</span>
+    }
+};
+</code>
+</pre>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box; color: rgb(0, 128, 0);">//HigherOrderComponent.js</span>
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">import</span> { Enhance } <span style="box-sizing: border-box; color: rgb(0, 0, 255);">from</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">"./Enhance"</span>;
+
+<span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">class</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">MyComponent</span> </span>{
+    render() {
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">if</span> (!<span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>.data) <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">div</span>&gt;</span>Waiting...<span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;/<span style="box-sizing: border-box; color: rgb(163, 21, 21);">div</span>&gt;</span>;</span>
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">div</span>&gt;</span>{this.data}<span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;/<span style="box-sizing: border-box; color: rgb(163, 21, 21);">div</span>&gt;</span>;</span>
+    }
+}
+
+<span style="box-sizing: border-box; color: rgb(0, 0, 255);">export</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">default</span> Enhance(MyComponent); <span style="box-sizing: border-box; color: rgb(0, 128, 0);">// Enhanced component</span>
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">用一个“增强函数”，来某个类增加一些方法，并且返回一个新类，这无疑能实现mixin所实现的大部分需求。</p>
+<h2 style="box-sizing: border-box; font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 500; color: rgb(51, 51, 51); font-size: 20px; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">ES6+带来的其它好处</h2>
+<h3 style="box-sizing: border-box; font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 900; color: rgb(51, 51, 51); font-size: 16px; text-transform: uppercase; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">解构&amp;属性延展</h3>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">结合使用ES6+的解构和属性延展，我们给孩子传递一批属性更为方便了。这个例子把className以外的所有属性传递给div标签：</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;"><span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">class</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">AutoloadingPostsGrid</span> <span style="box-sizing: border-box; color: rgb(0, 0, 255);">extends</span> <span style="box-sizing: border-box; color: rgb(163, 21, 21);">React</span>.<span style="box-sizing: border-box; color: rgb(163, 21, 21);">Component</span> </span>{
+    render() {
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">var</span> {
+            className,
+            ...others,  <span style="box-sizing: border-box; color: rgb(0, 128, 0);">// contains all properties of this.props except for className</span>
+        } = <span style="box-sizing: border-box; color: rgb(0, 0, 255);">this</span>.props;
+        <span style="box-sizing: border-box; color: rgb(0, 0, 255);">return</span> (
+            <span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">div</span> <span style="box-sizing: border-box; color: rgb(255, 0, 0);">className</span>=<span style="box-sizing: border-box; color: rgb(0, 0, 255);">{className}</span>&gt;</span>
+                <span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">PostsGrid</span> {<span style="box-sizing: border-box; color: rgb(255, 0, 0);">...others</span>} /&gt;</span>
+                <span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;<span style="box-sizing: border-box; color: rgb(163, 21, 21);">button</span> <span style="box-sizing: border-box; color: rgb(255, 0, 0);">onClick</span>=<span style="box-sizing: border-box; color: rgb(0, 0, 255);">{this.handleLoadMoreClick}</span>&gt;</span>Load more<span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;/<span style="box-sizing: border-box; color: rgb(163, 21, 21);">button</span>&gt;</span>
+            <span style="box-sizing: border-box; color: rgb(0, 0, 255);">&lt;/<span style="box-sizing: border-box; color: rgb(163, 21, 21);">div</span>&gt;</span>
+        )</span>;
+    }
+}
+</code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">下面这种写法，则是传递所有属性的同时，用覆盖新的className值：</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; word-break: break-all; word-wrap: break-word; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; white-space: pre; overflow-x: auto; word-wrap: normal; min-width: 100%; background: white;">&lt;div {...this.props} className=<span style="box-sizing: border-box; color: rgb(163, 21, 21);">"override"</span>&gt;
+    …
+&lt;<span style="box-sizing: border-box;">/div&gt;
+</span></code>
+</pre>
+<p style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Roboto, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">这个例子则相反，如果属性中没有包含className，则提供默认的值，而如果属性中已经包含了，则使用属性中的值</p>
+<div style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; color: rgb(51, 51, 51); border: none; border-radius: 0px; max-height: 350px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0.5em; color: black; border-radius: 0px; overflow-x: auto; min-width: 100%; background: white;">&lt;div className=<span style="box-sizing: border-box; color: rgb(163, 21, 21);">"base"</span> {...this.props}&gt;<br/>
+    …<br/>
+&lt;<span style="box-sizing: border-box;">/div&gt;</span></code></div>
+</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+</body></html>
