@@ -2,6 +2,11 @@
 for personal usage
 
 
+1、对loader都设置exclude
+2、问林帆要最新的node
+
+weibo： http://weibo.com/u/1879746691?source=blog&is_all=1#_rnd1472137945395
+
 https://leozdgao.me/modern-karma/
 
 
