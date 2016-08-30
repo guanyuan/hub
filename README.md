@@ -2,6 +2,7 @@
 for personal usage
 
 react children的正确使用： https://xieguanglei.github.io/blog/post/react-tips-children.html
+http://www.w3ctech.com/topic/1845
 
 1、对loader都设置exclude
 2、问林帆要最新的node
