@@ -1,6 +1,26 @@
 # hub
 for personal usage
 
+https://web-design-weekly.com/2015/01/29/opinionated-guide-react-js-best-practices-conventions/
+
+1、将productRow 和 productList写在同一个文件中
+2、Conditional JSX  提取一个变量进行渲染
+3、声明prototypes
+propTypes: {
+        arrayProp: React.PropTypes.array,
+        boolProp: React.PropTypes.bool,
+        funcProp: React.PropTypes.func,
+        numProp: React.PropTypes.number,
+        objProp: React.PropTypes.object,
+        stringProp: React.PropTypes.string,
+    }
+
+
+4、focus到输入框： this.refs.theInput.focus();
+
+
+
+
 路由跳转： this.props.history.pushState(null,'app');//跳转到Router定义路径为app
 
 可以用 babel-plugin-add-module-exports 这个插件 然后 require('../common/routes').default 后面default 就不用写了.
