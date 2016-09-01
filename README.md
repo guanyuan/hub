@@ -1,6 +1,10 @@
 # hub
 for personal usage
 
+路由跳转： this.props.history.pushState(null,'app');//跳转到Router定义路径为app
+
+可以用 babel-plugin-add-module-exports 这个插件 然后 require('../common/routes').default 后面default 就不用写了.
+
 react children的正确使用： https://xieguanglei.github.io/blog/post/react-tips-children.html
 http://www.w3ctech.com/topic/1845
 
