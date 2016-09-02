@@ -1,6 +1,10 @@
 # hub
 for personal usage
 
+
+https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
+路由readme
+
 https://web-design-weekly.com/2015/01/29/opinionated-guide-react-js-best-practices-conventions/
 
 1、将productRow 和 productList写在同一个文件中
