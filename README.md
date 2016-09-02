@@ -2,6 +2,8 @@
 for personal usage
 
 
+http://qiutc.me/post/%E8%B0%88%E8%B0%88-react-router.html
+
 https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
 路由readme
 
