@@ -1,6 +1,44 @@
 # hub
 for personal usage
 
+replace jquery ajax: https://github.com/mzabriskie/axios
+keyboard event: http://blog.garstasio.com/you-dont-need-jquery/events/#keyboard-events
+onKeyDown(e) {
+        if (!this.state.focus) {
+            return;
+        }
+
+        /** Tab */
+        if (e.keyCode === 9) {
+            return this.onBlur();
+        }
+
+        /** Arrow Down */
+        if (e.keyCode === 40) {
+            this.handleArrowDown();
+        }
+
+        /** Arrow Up */
+        if (e.keyCode === 38) {
+            this.handleArrowUp();
+        }
+    }
+    
+    
+    onKeyPress(e) {
+        if (!this.state.options || this.state.options.length < 1) {
+            return;
+        }
+
+        /** Enter */
+        if (e.keyCode === 13) {
+            return this.handleEnter();
+        }
+    }
+
+
+
+
 
 http://qiutc.me/post/%E8%B0%88%E8%B0%88-react-router.html
 
