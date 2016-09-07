@@ -1,6 +1,28 @@
 # hub
 for personal usage
 
+========================================
+在ES6里，可以统一使用static成员来实现
+
+//ES6
+class Video extends React.Component {
+    static defaultProps = {
+        autoPlay: false,
+        maxLoops: 10,
+    };  // 注意这里有分号
+    static propTypes = {
+        autoPlay: React.PropTypes.bool.isRequired,
+        maxLoops: React.PropTypes.number.isRequired,
+        posterFrameSrc: React.PropTypes.string.isRequired,
+        videoSrc: React.PropTypes.string.isRequired,
+    };  // 注意这里有分号
+    render() {
+        return (
+            <View />
+        );
+    } // 注意这里既没有分号也没有逗号
+}
+========================================
 replace jquery ajax: https://github.com/mzabriskie/axios
 keyboard event: http://blog.garstasio.com/you-dont-need-jquery/events/#keyboard-events
 onKeyDown(e) {
