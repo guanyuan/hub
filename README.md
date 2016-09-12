@@ -85,18 +85,19 @@ propTypes: {
 4、focus到输入框： this.refs.theInput.focus();
 
 
-
+===== LICENSE BEGIN =====
+===== LICENSE END =====
 
 路由跳转： this.props.history.pushState(null,'app');//跳转到Router定义路径为app
-
+11194-31102015
 可以用 babel-plugin-add-module-exports 这个插件 然后 require('../common/routes').default 后面default 就不用写了.
-
+00000xgI2JAR"YTpqcRVYdZIrNIFnP
 react children的正确使用： https://xieguanglei.github.io/blog/post/react-tips-children.html
 http://www.w3ctech.com/topic/1845
-
+CqVrFCZXDkFX5Di6Vno0TLPCKQppCx
 1、对loader都设置exclude
 2、问林帆要最新的node
-
+5dqTTwzhaQfN9g7vVnpK77uK6xR9FO
 weibo： http://weibo.com/u/1879746691?source=blog&is_all=1#_rnd1472137945395
 
 https://leozdgao.me/modern-karma/
