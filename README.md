@@ -1,5 +1,28 @@
 # hub
 for personal usage
+=========================================================
+http://le0zh.github.io/2016/06/21/eslint+in+react+babel+webpack/
+使用airbnb，包含react和jsx规则
+{
+  parser: "babel-eslint",  //检查es6代码
+  "extends": "airbnb",
+  "rules": {  //对规则进行微调
+    "no-unused-vars": 0,
+    "max-len": [1, 120, 2, {ignoreComments: true}],
+    "prop-types": [2]
+  }
+}
+
+调整airbnb规范
+eslint: react/prefer-es6-class  使用class extends component方式创建组件
+eslint: react/jsx-pascal-case  组件名使用驼峰规则
+eslint: jsx-quotes  jsx的属性，使用双引号
+eslint: react/wrap-multilines  用括号包裹多行 JSX 标签。 
+
+持久化登录信息
+copiedUser.fullName = encodeURIComponent(copiedUser.fullName || '');
+$localStorage.currentUser = btoa(JSON.stringify(copiedUser));
+
 
 ========================================
 在ES6里，可以统一使用static成员来实现
